@@ -1,0 +1,196 @@
+/* Global Styles for the Background */
+.page-container {
+  background: url("../../assets/bg-image.png"); /* Path to your image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fixed during scrolling */
+  background-repeat: no-repeat; /* No repeat */
+  min-height: 100vh; /* Ensure full viewport height */
+  padding: 20px; /* Space inside the container */
+}
+
+/* Inner Container Styling */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+}
+
+/* Additional Styling for Forms, Tables, and Alerts */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.table th, .table td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #007bff;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.table tbody tr:hover {
+  background-color: #eaf4ff;
+}
+
+/* Alerts Styling */
+.alert {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+/* Form Styling */
+form {
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* General Button Styling */
+/* General Button Styling (Same as before) */
+.custom-btn {
+  font-size: 14px; /* Adjust text size */
+  padding: 8px 20px; /* Adjust padding for better appearance */
+  border-radius: 30px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: bold; /* Bold text */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Delete Button Styling */
+.delete-btn {
+  background-color: #dc3545; /* Danger color (red) */
+  color: white; /* Text color */
+}
+
+.delete-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Disabled Button (if needed) */
+.btn[disabled] {
+  opacity: 0.6; /* Make disabled buttons less opaque */
+  cursor: not-allowed; /* Change cursor to indicate button is disabled */
+}
+
+
+/* Text Button Styling */
+.txt-btn {
+  background-color: #17a2b8; /* Info color */
+  color: white; /* Text color */
+}
+
+.txt-btn:hover {
+  background-color: #138496; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* PDF Button Styling */
+.pdf-btn {
+  background-color: #28a745; /* Success color */
+  color: white; /* Text color */
+}
+
+.pdf-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Disabled Button (if needed) */
+.btn[disabled] {
+  opacity: 0.6; /* Make disabled buttons less opaque */
+  cursor: not-allowed; /* Change cursor to indicate button is disabled */
+}
+
+
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Error Display */
+.error-message {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}

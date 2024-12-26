@@ -1,0 +1,41 @@
+<header class="custom-navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div class="navbar-brand">
+      <a href="/" class="brand-logo">
+        <img src="assets/logo.jpeg" class="logo-image">
+        PubleX
+      </a>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="navbar-links">
+      <!-- Admin Links -->
+      <ul *ngIf="userType === 'Admin'" class="navbar-menu">
+        <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
+      </ul>
+
+      <!-- Employee Links -->
+      <ul *ngIf="userType === 'Employee'" class="navbar-menu">
+        <li><a routerLink="/projectsEmployee" routerLinkActive="active">Projects</a></li>
+        <li><a routerLink="/cps" routerLinkActive="active">Tasks</a></li>
+      </ul>
+
+      <!-- Manager Links -->
+      <ul *ngIf="userType === 'Manager'" class="navbar-menu">
+        <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+      </ul>
+
+      <!-- Director Links -->
+      <ul *ngIf="userType === 'Director'" class="navbar-menu">
+        <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+      </ul>
+
+      <!-- User Account Links -->
+      <ul class="navbar-menu account-menu">
+        <li><span class="user-info">Logged in as: {{ userName }}</span></li>
+        <li><a (click)="logout()" class="logout-link">Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

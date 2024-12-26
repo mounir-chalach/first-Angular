@@ -1,0 +1,120 @@
+<div class="page-container">
+  <div class="container">
+  <h1 class="text-center">Add Tasks</h1>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <!-- CPS Form -->
+  <form (ngSubmit)="onSubmit()">
+    <!-- CPS Name -->
+    <div class="form-group">
+      <label for="nom">Task Name</label>
+      <input
+        type="text"
+        id="nom"
+        [(ngModel)]="cps.nom"
+        name="nom"
+        class="form-control"
+        placeholder="Enter Task Name"
+        required
+      />
+    </div>
+
+    <!-- CPS Tasks -->
+    <div class="form-group">
+      <label for="tasks">Task Description</label>
+      <textarea
+        id="tasks"
+        [(ngModel)]="cps.tasks"
+        name="tasks"
+        class="form-control"
+        placeholder="Enter description"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="stack">Materials Used</label>
+      <textarea
+        id="stack"
+        [(ngModel)]="cps.stack"
+        name="stack"
+        class="form-control"
+        placeholder="Enter the materials used"
+        required
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="projectId">Select Project</label>
+      <select
+        id="projectId"
+        [(ngModel)]="cps.projectId"
+        name="projectId"
+        class="form-control"
+        required
+      >
+        <ng-container *ngFor="let project of filteredProjects">
+          <option *ngIf="project.approved == true" [value]="project.id">
+            {{ project.titre }} - Budget: {{ project.budget | currency }}
+          </option>
+        </ng-container>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add CPS</button>
+  </form>
+
+
+
+
+  <h2 class="text-center">List of Tasks</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>CPS Title</th>
+      <th>Tasks</th>
+      <th>Stack used</th>
+      <th>Project Title</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Budget</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cps of cpsList">
+      <td>{{ cps.nom }}</td>
+      <td>{{ cps.tasks }}</td>
+      <td>{{ cps.stack }}</td>
+      <td>{{ cps.projectTitle }}</td>
+      <td>{{ cps.startDate | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ cps.endDate | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ cps.budget | currency }}</td>
+      <td>
+        <!-- Delete Button -->
+        <button (click)="deleteCPS(cps.id)" class="btn btn-danger btn-sm custom-btn delete-btn">
+          Delete
+        </button>
+
+
+        <!-- Download as .txt Button -->
+        <button (click)="downloadCPSAsText(cps)" class="btn btn-info btn-sm custom-btn txt-btn">
+          Download as .txt
+        </button>
+
+        <!-- Download as PDF Button -->
+        <button (click)="downloadCPSAsPDF(cps)" class="btn btn-success btn-sm custom-btn pdf-btn">
+          Download as PDF
+        </button>
+
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>

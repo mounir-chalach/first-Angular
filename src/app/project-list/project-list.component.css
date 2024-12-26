@@ -1,0 +1,76 @@
+/* Page background styling */
+.page-container {
+  background: url("../../assets/bg-image.png"); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the image fixed while scrolling */
+  background-repeat: no-repeat; /* Prevents tiling of the image */
+  min-height: 100vh; /* Ensures the container covers the entire viewport height */
+  padding: 20px; /* Adds some padding inside the container */
+}
+
+/* Table container with blur effect */
+.table-container {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blurs the background behind the table */
+  border-radius: 10px; /* Smooth edges */
+  padding: 15px; /* Adds padding around the table */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+}
+
+/* General table styling */
+.table {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  padding: 10px;
+}
+
+.table th {
+  background-color: #343a40;
+  color: white;
+  font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table td {
+  font-size: 14px;
+}
+
+.table .btn {
+  margin-top: 5px;
+}
+
+/* Headings styling */
+h1 {
+  color: white;
+  font-weight: 600;
+}
+
+h2 {
+  color: white;
+}
+
+/* Button styling */
+button {
+  background-color: dimgrey;
+  color: white;
+  font-weight: bold;
+}
+
+/* Add spacing around table sections */
+.table-section {
+  margin-bottom: 30px;
+}

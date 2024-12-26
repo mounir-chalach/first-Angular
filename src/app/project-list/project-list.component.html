@@ -1,0 +1,90 @@
+<div class="page-container container py-5">
+  <h1 class="text-center mb-4">Projects Overview</h1>
+
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+
+  <h2>Pending requests</h2>
+  <div *ngIf="projects && projects.length > 0; else noProjects" class="table-section">
+    <div class="table-container">
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Project Title</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Budget</th>
+          <th>Proposed By</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let project of projects">
+          <tr *ngIf="project.approved == null">
+            <td>{{ project.id }}</td>
+            <td>{{ project.titre }}</td>
+            <td>{{ project.dateDebut | date:'dd/MM/yyyy' }}</td>
+            <td>{{ project.dateFin | date:'dd/MM/yyyy' }}</td>
+            <td>${{ project.budget }}</td>
+            <td>{{ project.proposeParNom }}</td>
+            <td style="display: grid; grid-template-columns: repeat(2,1fr); gap: 20px">
+              <button
+                class="btn btn-success btn-sm"
+                [disabled]="project.approved"
+                (click)="approveProject(project.id)"
+              >
+                Approve
+              </button>
+              <button
+                class="btn btn-success btn-sm"
+                [disabled]="project.approved"
+                (click)="disApproveProject(project.id)"
+              >
+                Disapprove
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2>Requests status</h2>
+  <div *ngIf="projects && projects.length > 0; else noProjects" class="table-section">
+    <div class="table-container">
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Project Title</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Budget</th>
+          <th>Proposed By</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let project of projects">
+          <tr *ngIf="project.approved != null">
+            <td>{{ project.id }}</td>
+            <td>{{ project.titre }}</td>
+            <td>{{ project.dateDebut | date:'dd/MM/yyyy' }}</td>
+            <td>{{ project.dateFin | date:'dd/MM/yyyy' }}</td>
+            <td>${{ project.budget }}</td>
+            <td>{{ project.proposeParNom }}</td>
+            <td>{{ project.approved ? 'Approved' : 'Disapproved' }}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #noProjects>
+    <p class="text-center text-muted">No projects available at the moment.</p>
+  </ng-template>
+</div>

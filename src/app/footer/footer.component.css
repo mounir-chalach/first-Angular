@@ -1,0 +1,29 @@
+.custom-footer {
+  background-color: #1a1a1a; /* Couleur noire élégante avec un léger ton gris */
+  color: #ffffff; /* Texte en blanc pour un contraste élevé */
+  padding: 20px 10px; /* Espace supérieur et inférieur agrandi pour un aspect spacieux */
+  text-align: center; /* Centrer le contenu */
+  width: 100%; /* Occupe toute la largeur */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile pour donner de la profondeur */
+  border-top: 2px solid #00bcd4; /* Ligne de séparation colorée (exemple : cyan) */
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 16px; /* Texte légèrement plus grand pour une meilleure lisibilité */
+  font-family: 'Arial', sans-serif; /* Police moderne */
+  letter-spacing: 0.5px; /* Espacement léger entre les lettres pour un style raffiné */
+  opacity: 0.9; /* Réduction légère de l'opacité pour un aspect doux */
+}
+
+.custom-footer a {
+  color: #00bcd4; /* Liens dans la même couleur que la bordure */
+  text-decoration: none; /* Pas de soulignement */
+  font-weight: 600; /* Texte plus gras pour les liens */
+  transition: color 0.3s ease; /* Animation survol */
+}
+
+.custom-footer a:hover {
+  color: #ffffff; /* Couleur blanche lors du survol */
+  text-decoration: underline; /* Ajout de soulignement pour indiquer le clic */
+}

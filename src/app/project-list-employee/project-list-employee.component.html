@@ -1,0 +1,95 @@
+<div class="page-containers">
+  <div class="content-layout">
+    <!-- Left content -->
+    <div class="left-content">
+      <h1 class="text-center mb-4">Projects Overview</h1>
+
+      <div *ngIf="errorMessage" class="alert alert-danger text-center">
+        {{ errorMessage }}
+      </div>
+
+      <div class="table-section">
+        <h2>My projects' ideas status</h2>
+        <div *ngIf="filteredProjects && filteredProjects.length > 0; else noProjects">
+          <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Project Title</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Budget</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let project of filteredProjects">
+              <td>{{ project.titre }}</td>
+              <td>{{ project.dateDebut | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ project.dateFin | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ project.budget }}MAD</td>
+              <td>
+                {{ project.approved === true ? 'Approved' : project.approved === false ? 'Disapproved' : 'Pending' }}
+              </td>
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- No Projects Message -->
+        <ng-template #noProjects>
+          <p class="text-center text-muted">No projects found for you.</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Right content (Form) -->
+    <div class="right-content">
+      <h2>Add a New Project</h2>
+      <form (ngSubmit)="addProject()" #projectForm="ngForm">
+        <label for="titre">Title:</label>
+        <input
+          id="titre"
+          type="text"
+          [(ngModel)]="newProject.titre"
+          name="titre"
+          required
+          #titre="ngModel"
+        />
+
+        <label for="budget">Budget:</label>
+        <input
+          id="budget"
+          type="number"
+          [(ngModel)]="newProject.budget"
+          name="budget"
+          required
+          #budget="ngModel"
+        />
+
+        <label for="dateDebut">Start Date:</label>
+        <input
+          id="dateDebut"
+          type="date"
+          [(ngModel)]="newProject.dateDebut"
+          name="dateDebut"
+          required
+          #dateDebut="ngModel"
+        />
+
+        <label for="dateFin">End Date:</label>
+        <input
+          id="dateFin"
+          type="date"
+          [(ngModel)]="newProject.dateFin"
+          name="dateFin"
+          required
+          #dateFin="ngModel"
+        />
+
+        <button type="submit" [disabled]="projectForm.invalid">Add Project</button>
+      </form>
+
+    </div>
+  </div>
+</div>
